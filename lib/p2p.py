@@ -1,4 +1,5 @@
 import socket
+from threading import Thread
 
 class Peer:
     def __init__(self):
@@ -20,4 +21,8 @@ class Peer:
         return connection
 
 if __name__ == '__main__':
-    pass
+    peer = Peer()
+    conn = peer.listen_at('192.168.1.53', 4444)
+    peer.connect_to('192.168.1.21', 4444)
+    Thread(target=peer.recv_data, args=(conn,))
+    peer.send_data(conn, 'hey')
