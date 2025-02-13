@@ -8,8 +8,7 @@ class Peer:
         self.timeout = 0
         self.buffsize = 2048
         self.encoding = 'utf-8'
-        self.key = genPrivateKey()
-        self.cert = genCertificate(self.key)
+        self.key, self.cert = gen()
     def send_data(self, conn, data):
         conn.sendall(data.encode(self.encoding))
     def recv_data(self, conn):
