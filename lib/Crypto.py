@@ -1,6 +1,4 @@
 from OpenSSL import crypto
-import socket
-import ssl
 
 def gen():
     key = crypto.PKey()
