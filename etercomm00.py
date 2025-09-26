@@ -5,6 +5,8 @@ from threading import Thread
 from queue import Queue
 from time import sleep
 
+# vecchio
+
 class Etercomm:
     def __init__(self):
         self.incoming_queue = Queue()
