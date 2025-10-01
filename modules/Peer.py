@@ -38,9 +38,9 @@ class Peer:
         return self.listen_sock.getsockname()[1]
 
     def bind_local(self, port=None) -> None:
-        self.listen_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.listen_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # socket TCP di ascolto
         self.listen_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.listen_sock.bind((self.get_local_ip(), port if port else 0))
+        self.listen_sock.bind((self.get_local_ip(), port if port else 0)) # binding all'IP locale e alla porta passata come parametro oppure scelta casualmente dall'OS
         self.listen_sock.listen(1)
         self.listen_sock.settimeout(1.0)
 
